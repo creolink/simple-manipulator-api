@@ -3,7 +3,7 @@
 ## Prerequisites
  - installed docker (ex: docker desktop) 
  - for local development, installed composer
-   production should be fully configured in docker container
+   - production should be fully configured in docker container
 
 
 ## Setup
