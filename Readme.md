@@ -12,6 +12,7 @@
    - this will copy application to docker container
  - use `make up` to setup dev environment
    - this will allow to change code and see results
+ - works on localhost, port 80
 
 
 ## Configuration
