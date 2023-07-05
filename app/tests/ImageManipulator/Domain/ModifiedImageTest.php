@@ -148,7 +148,5 @@ class ModifiedImageTest extends TestCase
         );
 
         $result = $modifiedImage->applyModificators();
-
-        // $this->assertEquals($originalImage->getImageResource(), $result);
     }
 }
