@@ -1,0 +1,38 @@
+version: "3"
+services:
+
+  nginx:
+    container_name: anwaltde-nginx
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    ports: 
+      - "80:80"
+    networks:
+      - internal
+    volumes:
+      - ./app/:/var/www/html/
+
+  php:
+    container_name: anwaltde-php
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+    networks:
+      - internal
+    volumes:
+      - ./app/:/var/www/html/
+
+  composer:
+    container_name: anwaltde-composer
+    image: "composer"
+    volumes:
+      - "./app/:/app"
+    command: install
+    depends_on:
+      - php
+      - nginx
+
+networks:
+  internal:
+    driver: bridge

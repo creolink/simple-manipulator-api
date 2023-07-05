@@ -1,0 +1,24 @@
+version: "3"
+services:
+
+  nginx:
+    container_name: anwaltde-nginx
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    ports: 
+      - "80:80"
+    networks:
+      - internal
+
+  php:
+    container_name: anwaltde-php
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
